@@ -13,11 +13,12 @@ string load( const char* path )
 {
     FILE* src = fopen(path, "rb");
     string res;
-    struct stat sb{};
 
-    stat(path, &sb);
-    res.resize(sb.st_size);
-    fread(const_cast<char*>(res.data()), sb.st_size, 1, src);
+    fseek(src,0,SEEK_END);
+    int size = ftell(src);
+	rewind( src );
+	res.resize(size);
+    fread(const_cast<char*>(res.data()), size, 1, src);
     fclose(src);
     return res;
 }
