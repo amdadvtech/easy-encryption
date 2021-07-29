@@ -5,6 +5,8 @@
 #include <stdio.h>
 #include <ctype.h>
 
+#define or ||
+
 using namespace std;
 
 std::string AVAILABLE_CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ";
