@@ -10,12 +10,31 @@ using namespace std;
 std::string AVAILABLE_CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ";
 
 int index(char c) {
+	if( 'a' <= c && c <= 'z' )
+	{
+		return c - 'a';
+	}
+	if( 'A' <= c && c <= 'Z' )
+	{
+		return 26 + ( c - 'A' );
+	}
+	if( '0' <= c && c <= '9' )
+	{
+		return 26 * 2 + ( c - '0' );
+	}
+	if( c == ' ')
+	{
+		return 26 * 2 + 10;
+	}
+
+	/* Original
 	for(int ii = 0; ii < AVAILABLE_CHARS.size(); ii++) {
 		if(AVAILABLE_CHARS[ii] == c) {
 			// std::cout << ii << " " << c << std::endl;
 			return ii;
 		}
 	}
+	*/
 	return -1;
 }
 
