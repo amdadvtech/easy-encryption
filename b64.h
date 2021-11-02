@@ -1,3 +1,5 @@
+#pragma once
+
 #include <string>
 #include <sstream>
 #include <iostream>
@@ -6,7 +8,7 @@
 using namespace std;
 
 
-static std::string base64_encode(const std::string &in) {
+inline static std::string base64_encode(const std::string &in) {
 
     std::string out;
 
@@ -25,7 +27,7 @@ static std::string base64_encode(const std::string &in) {
     return out;
 }
 
-static std::string base64_decode(const std::string &in) {
+inline static std::string base64_decode(const std::string &in) {
 
     std::string out;
 

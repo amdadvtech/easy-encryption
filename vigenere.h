@@ -1,3 +1,5 @@
+#pragma once
+
 #include <stdio.h>
 #include <string.h>
 #include <string>
@@ -7,9 +9,9 @@
 
 using namespace std;
 
-std::string AVAILABLE_CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ";
+static const std::string AVAILABLE_CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ";
 
-int index(char c) {
+inline int index(char c) {
 	if( 'a' <= c && c <= 'z' )
 	{
 		return c - 'a';
@@ -39,7 +41,7 @@ int index(char c) {
 }
 
 
-std::string extend_key(std::string& msg, std::string& key) {
+inline std::string extend_key(std::string& msg, std::string& key) {
 	//generating new key
 	int msgLen = msg.size();
 	std::string newKey(msgLen, 'x');
@@ -55,7 +57,7 @@ std::string extend_key(std::string& msg, std::string& key) {
 }
 
 
-std::string encrypt_vigenere(std::string& msg, std::string& key) {
+inline std::string encrypt_vigenere(std::string& msg, std::string& key) {
 	int msgLen = msg.size(), keyLen = key.size(), i, j;
  	std::string encryptedMsg(msgLen, 'x');
     // char newKey[msgLen], encryptedMsg[msgLen], decryptedMsg[msgLen];
@@ -76,7 +78,7 @@ std::string encrypt_vigenere(std::string& msg, std::string& key) {
     return encryptedMsg; 
 }
 
-std::string decrypt_vigenere(std::string& encryptedMsg, std::string& newKey) {
+inline std::string decrypt_vigenere(std::string& encryptedMsg, std::string& newKey) {
 	// decryption
 	int msgLen = encryptedMsg.size();
 	std::string decryptedMsg(msgLen, 'x');
