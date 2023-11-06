@@ -22,9 +22,9 @@ int index(char c) {
 
 std::string extend_key(std::string& msg, std::string& key) {
 	//generating new key
-	int msgLen = msg.size();
+	int msgLen = static_cast<int>( msg.size() );
 	std::string newKey(msgLen, 'x');
-	int keyLen = key.size(), i, j;
+	int keyLen = static_cast<int>( key.size() ), i, j;
     for(i = 0, j = 0; i < msgLen; ++i, ++j){
         if(j == keyLen)
             j = 0;
@@ -37,7 +37,7 @@ std::string extend_key(std::string& msg, std::string& key) {
 
 
 std::string encrypt_vigenere(std::string& msg, std::string& key) {
-	int msgLen = msg.size(), keyLen = key.size(), i, j;
+	int msgLen = static_cast<int>( msg.size() ), keyLen = static_cast<int>( key.size() ), i;
  	std::string encryptedMsg(msgLen, 'x');
     // char newKey[msgLen], encryptedMsg[msgLen], decryptedMsg[msgLen];
  
@@ -59,7 +59,7 @@ std::string encrypt_vigenere(std::string& msg, std::string& key) {
 
 std::string decrypt_vigenere(std::string& encryptedMsg, std::string& newKey) {
 	// decryption
-	int msgLen = encryptedMsg.size();
+	int msgLen = static_cast<int>( encryptedMsg.size() );
 	std::string decryptedMsg(msgLen, 'x');
 	int i;
     for(i = 0; i < msgLen; ++i) {
